@@ -9,6 +9,10 @@ var megatech = (function(){
 	};
 	
 	return {
+		loadPug : function() {
+			element = document.getElementById("pug");
+			element.innerHTML = "<p style='text-align: center;'><img src='../img/pug.jpg' height='192' width='108'/></p>" + element.innerHTML;
+		},
 		clear : function(element){ element.innerHTML = ""; },
 		insertLink : function(element, link){ 
 			element.innerHTML += "<p id='link" + linkCount++ + "'><a href='" + link + "'>" + link + "</a></p>"; 
