@@ -9,6 +9,13 @@ var megatech = (function(){
 	};
 	
 	return {
+		random : function(obj = {min : 0, max : 100}){
+			return Math.floor((Math.random() * obj.max) + obj.min);
+		}
+		rps : function(element){
+			
+			if
+		}
 		loadPug : function() {
 			element = document.getElementById("pug");
 			element.innerHTML = "<p style='text-align: center;'><img src='../img/pug.jpg' height='192' width='108'/></p>" + element.innerHTML;
