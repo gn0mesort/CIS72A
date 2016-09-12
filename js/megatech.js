@@ -13,8 +13,6 @@ var megatech = (function(){
 			return Math.floor((Math.random() * obj.max) + obj.min);
 		}
 		rps : function(element){
-			
-			if
 		}
 		loadPug : function() {
 			element = document.getElementById("pug");
