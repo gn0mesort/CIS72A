@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Rock, Paper, Scissors</title>
+		<link rel='stylesheet' type='text/css' href='../css/default.css' />
+		<script src='../js/megatech.js'></script>
+    </head>
+    <body>
+	<div id='title' class='centered'>
+		<h3>Rock, Paper, Scissors</h3>
+	</div>
+	<hr />
+	<div id='game' class='centered'>
+		<img src='../img/blank.png' id='player' width='256' height='256'/>
+		<img src='../img/blank.png' id='cpu' width='256' height='256'/>
+		<h5 id='playerScore'>Player: 0</h4>
+		<h5 id='cpuScore'>CPU: 0</h4>
+		<h5 id='result'></h4>
+	</div>
+	<hr />
+	<div id='control' class='centered'>
+		<button id='rock' onclick='inputHandle(0)'>Rock</button>
+		<button id='paper' onclick='inputHandle(1)'>Paper</button>
+		<button id='scissors' onclick='inputHandle(2)'>Scissors</button>
+	</div>
+	<script>
+	var playerScore = 0;
+	var cpuScore = 0;
+	var inputHandle = function(data){
+		var rock = document.getElementById("rock");
+		var paper = document.getElementById("paper");
+		var scissors = document.getElementById("scissors");
+		var pScoreText = document.getElementById("playerScore");
+		var cScoreText = document.getElementById("cpuScore");
+		var resText = document.getElementById("result");
+		var result = 0;
+		
+		rock.disabled = true;
+		paper.disabled = true;
+		scissor = true;
+		result = megatech.rps(data);
+		rock.disabled = false;
+		paper.disabled = false;
+		scissor = false;
+		if(result === -1){ resText.innerText = "Tie."; }
+		else if(result === 1) { 
+			resText.innerText = "You Win!";
+			pScoreText.innerText = "Player: " + ++playerScore;
+		}
+		else if (result === 0) { 
+			resText.innerText = "You Lose."; 
+			cScoreText.innerText = "CPU: " + ++cpuScore;
+		}
+	}
+	</script>
+    </body>
+</html>
