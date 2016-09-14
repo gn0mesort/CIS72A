@@ -2,7 +2,6 @@ var megatech = (function(){
 	var linkCount = 0;
 	var curColor = 0;
 	var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
-	var rainbowId = 0;
 	var rainbow = function(element) {
 			element.style.color = colors[curColor++];
 			if(curColor > colors.length) { curColor = 0; }
@@ -47,11 +46,19 @@ var megatech = (function(){
 			element.innerHTML += "<p id='link" + linkCount++ + "'><a href='" + link + "'>" + link + "</a></p>"; 
 		},
 		toggleRainbow : function(element){
-			if(rainbowId === 0){ rainbowId = setInterval(rainbow, 75, element); }
-			else { 
-				clearInterval(rainbowId);
-				rainbowId = 0;
+			if(!megatech.isRainbow(element)){ 
+				element.setAttribute("rainbow", setInterval(rainbow, 75, element) + "/" + element.style.color);
 			}
+			else { 
+				var attrData = element.getAttribute("rainbow").split("/");
+				clearInterval(Number(attrData[0]));
+				element.style.color = attrData[1];
+				element.removeAttribute("rainbow")
+			}
+		},
+		isRainbow : function(element){
+			if(element.getAttribute("rainbow")) { return true; }
+			else { return false; }
 		}
 	};
 })();

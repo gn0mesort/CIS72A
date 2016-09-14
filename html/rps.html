@@ -28,6 +28,8 @@
 	<script>
 	var playerScore = 0;
 	var cpuScore = 0;
+	var isDark = false;
+	var bStyle = document.getElementById("body").style;
 	var inputHandle = function(data){
 		var rock = document.getElementById("rock");
 		var paper = document.getElementById("paper");
@@ -44,23 +46,36 @@
 		rock.disabled = false;
 		paper.disabled = false;
 		scissor = false;
-		if(result === -1){ resText.innerText = "Tie."; }
+		if(result === -1){ 
+			if(megatech.isRainbow(resText)) { 
+				megatech.toggleRainbow(resText);
+			}
+			resText.innerText = "Tie."; 
+		}
 		else if(result === 1) { 
+			if(!megatech.isRainbow(resText)) { megatech.toggleRainbow(resText); }
 			resText.innerText = "You Win!";
 			pScoreText.innerText = "Player: " + ++playerScore;
 		}
 		else if (result === 0) { 
+			if(megatech.isRainbow(resText)) { 
+				megatech.toggleRainbow(resText);
+			}
 			resText.innerText = "You Lose."; 
 			cScoreText.innerText = "CPU: " + ++cpuScore;
 		}
 	}
 	var toggleDark = function(){
 		var body = document.getElementById('body');
-		if(body.style === "") { 
-			body.style.background-color = "black";
+		if(!isDark) { 
+			body.style.backgroundColor = "black";
 			body.style.color = "white";
+			isDark = true;
 		}
-		else { body.style = ""; }
+		else { 
+			body.style = bStyle;
+			isDark = false;
+		}
 	}
 	</script>
     </body>
