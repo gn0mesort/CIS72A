@@ -21,9 +21,11 @@ var megatech = (function(){
 			var player = document.getElementById("player");
 			var cpu = document.getElementById("cpu");
 			player.src = processRps(data);
+			player.removeAttribute("hidden");
 			player.choice = data;
 			cpu.choice = megatech.random({min : 0, max : 3});
 			cpu.src = processRps(cpu.choice);
+			cpu.removeAttribute("hidden")
 			if(player.choice !== cpu.choice){
 				if(player.choice === 0 && cpu.choice === 1) { return 0; }
 				else if(player.choice === 0 && cpu.choice == 2){ return 1; }
