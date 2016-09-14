@@ -6,7 +6,7 @@
 		<link rel='stylesheet' type='text/css' href='../css/default.css' />
 		<script src='../js/megatech.js'></script>
     </head>
-    <body>
+    <body id='body' style=''>
 	<div id='title' class='centered'>
 		<h3>Rock, Paper, Scissors</h3>
 	</div>
@@ -23,6 +23,7 @@
 		<button id='rock' onclick='inputHandle(0)'>Rock</button>
 		<button id='paper' onclick='inputHandle(1)'>Paper</button>
 		<button id='scissors' onclick='inputHandle(2)'>Scissors</button>
+		<p><button onclick='toggleDark()'>Toggle Dark Theme</button></p>
 	</div>
 	<script>
 	var playerScore = 0;
@@ -52,6 +53,14 @@
 			resText.innerText = "You Lose."; 
 			cScoreText.innerText = "CPU: " + ++cpuScore;
 		}
+	}
+	var toggleDark = function(){
+		var body = document.getElementById('body');
+		if(body.style === "") { 
+			body.style.background-color = "black";
+			body.style.color = "white";
+		}
+		else { body.style = ""; }
 	}
 	</script>
     </body>
