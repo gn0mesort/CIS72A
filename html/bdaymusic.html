@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>8ch.net Music Files</title>
+    </head>
+    <body>
+        <div>
+            <h4>Music File List</h4>
+            <ul id="links">
+            </ul>
+        </div>
+        <script type="text/javascript">
+            var list = document.getElementById("links");
+            for(var i = 1; i < 12; ++i){
+                list.innerHTML += "<li><a href=https://8ch.net/static/" + i + ".mp3>" + i + "</a></li>";
+            }
+        </script>
+    </body>
+</html>
