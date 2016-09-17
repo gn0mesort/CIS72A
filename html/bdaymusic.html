@@ -9,7 +9,7 @@
             <h4>Music File List</h4>
             <ul id="links"></ul>
             <h4>Player</h4>
-            <audio controls><source id="music" src="" type="">Ya blew it kid!</audio>
+            <audio controls preload><source id="music" src="" type="">Ya blew it kid!</audio>
             <form>
                 <select name="track">
                     <option value="1" selected>1</option>
@@ -31,11 +31,13 @@
         <script type="text/javascript">
             var list = document.getElementById("links");
             var audio = document.getElementById("music");
+            var trackNum = document.location.search.split("=")[1];
             for(var i = 1; i < 12; ++i){
                 list.innerHTML += "<li><a id='track" + i + "' href=https://8ch.net/static/" + i + ".mp3>" + i + "</a></li>";
             }
-            audio.src = document.getElementById("track" + document.location.search.split("=")[1]).href;
+            audio.src = document.getElementById("track" + trackNum).href;
             audio.type = "audio/mpeg";
+            document.getElementsByName("track")[0][trackNum - 1].selected = true;
         </script>
     </body>
 </html>
