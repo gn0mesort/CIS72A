@@ -7,14 +7,35 @@
     <body>
         <div>
             <h4>Music File List</h4>
-            <ul id="links">
-            </ul>
+            <ul id="links"></ul>
+            <h4>Player</h4>
+            <audio controls><source id="music" src="" type="">Ya blew it kid!</audio>
+            <form>
+                <select name="track">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                </select>
+                <button action="submit">Load Track</button>
+            </form>
+            
         </div>
         <script type="text/javascript">
             var list = document.getElementById("links");
+            var audio = document.getElementById("music");
             for(var i = 1; i < 12; ++i){
-                list.innerHTML += "<li><a href=https://8ch.net/static/" + i + ".mp3>" + i + "</a></li>";
+                list.innerHTML += "<li><a id='track" + i + "' href=https://8ch.net/static/" + i + ".mp3>" + i + "</a></li>";
             }
+            audio.src = document.getElementById("track" + document.location.search.split("=")[1]).href;
+            audio.type = "audio/mpeg";
         </script>
     </body>
 </html>
