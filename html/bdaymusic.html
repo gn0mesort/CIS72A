@@ -60,7 +60,7 @@
             var selector = document.getElementById("trackselect");
             var loop = document.getElementById("loop");
             var auto = document.getElementById("auto");
-            var options = urlParams();
+            var options = urlParams() || {track: 1, loop: false, auto: false};
             loop.checked = options.loop;
             auto.checked = options.auto;
             for(var i = 1; i < 47; ++i){
