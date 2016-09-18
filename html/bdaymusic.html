@@ -44,10 +44,18 @@
                 <select name="track" id="trackselect">
                 </select>
                 <button action="submit">Load Track</button>
+                <input type="hidden" name="volume" value="" id="volumevalue">
                 <input type="checkbox" name="loop" value="true" id="loop">Loop
                 <input type="checkbox" name="auto" value="true" id="auto">Autoplay
+                <br />
+                <audio controls preload id="player" onended="goToTrack(options.track)" onvolumechange="document.getElementById('volumevalue').value = this.volume;">
+                    <source id="music" src="" type="">
+                    Ya blew it kid!
+                </audio>
+                <br />
+                <button onclick="goToTrack(options.track - 2);">&lt;&lt; Previous</button>
+                <button onclick="goToTrack(options.track);">Next &gt;&gt;</button>
             </form>
-            <audio controls preload id="player" onended="nextTrack()"><source id="music" src="" type="">Ya blew it kid!</audio>
         </div>
         <div id="links">
             <h4>Music File List</h4>
@@ -60,9 +68,12 @@
             var selector = document.getElementById("trackselect");
             var loop = document.getElementById("loop");
             var auto = document.getElementById("auto");
-            var options = urlParams() || {track: 1, loop: false, auto: false};
+            var volume = document.getElementById("volumevalue");
+            var options = urlParams() || {track: 1, loop: false, auto: false, volume: 1.0};
             loop.checked = options.loop;
             auto.checked = options.auto;
+            player.volume = options.volume;
+            volume.value = player.volume;
             for(var i = 1; i < 47; ++i){
                     list.children[1].innerHTML += "<a id='track" + i + "' href=https://8ch.net/static/" + i + ".mp3>" + toDigits(i, 3) + "</a> ";
                     if(i % 10 === 0){ list.children[1].innerHTML += "<br />"; }
@@ -75,10 +86,10 @@
             musicSource.type = "audio/mpeg";
             selector[options.track - 1].selected = true;
             
-            var nextTrack = function(){
+            var goToTrack = function(track){
                 var form = document.getElementById("datainput");
                 var selector = document.getElementById("trackselect");
-                selector[options.track].selected = true;
+                selector[track].selected = true;
                 form.submit();
             };
             
