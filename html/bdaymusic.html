@@ -3,41 +3,85 @@
     <head>
         <meta charset="utf-8">
         <title>8ch.net Music Files</title>
+        <script type="text/javascript">
+            var urlParams = function(){
+                r = null;
+                if(document.location.search !== ""){
+                    r = {};
+                    var urlData = document.location.search.slice(1).split("&");
+                    for(var i = 0; i < urlData.length; ++i){
+                       var tmp = urlData[i].split("=");
+                       r[tmp[0]] = tmp[1];
+                    }
+                }
+                return r;
+            };
+            var toDigits = function(data, num){
+                var str = data.toString();
+                var r = "";
+                if(str.length > num) {
+                    for(var i = 0; i < num; ++i){
+                        r += str[str.length - i];
+                    }
+                }
+                else if(str.length < num){
+                    for(var i = 0; i < (num - str.length); ++i){
+                        r += "0";
+                    }
+                    r += str;
+                }
+                else {
+                    r = str;
+                }
+                return r;
+            };
+        </script>
     </head>
     <body>
-        <div>
-            <h4>Music File List</h4>
-            <ul id="links"></ul>
+        <div id="musicplayer">
             <h4>Player</h4>
-            <audio controls preload><source id="music" src="" type="">Ya blew it kid!</audio>
-            <form>
-                <select name="track">
-                    <option value="1" selected>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
+            <form id="datainput">
+                <select name="track" id="trackselect">
                 </select>
                 <button action="submit">Load Track</button>
+                <input type="checkbox" name="loop" value="true" id="loop">Loop
+                <input type="checkbox" name="auto" value="true" id="auto">Autoplay
             </form>
-            
+            <audio controls preload id="player" onended="nextTrack()"><source id="music" src="" type="">Ya blew it kid!</audio>
+        </div>
+        <div id="links">
+            <h4>Music File List</h4>
+            <p></p>
         </div>
         <script type="text/javascript">
             var list = document.getElementById("links");
-            var audio = document.getElementById("music");
-            var trackNum = document.location.search.split("=")[1];
-            for(var i = 1; i < 12; ++i){
-                list.innerHTML += "<li><a id='track" + i + "' href=https://8ch.net/static/" + i + ".mp3>" + i + "</a></li>";
+            var musicSource = document.getElementById("music");
+            var player = document.getElementById("player");
+            var selector = document.getElementById("trackselect");
+            var loop = document.getElementById("loop");
+            var auto = document.getElementById("auto");
+            var options = urlParams();
+            loop.checked = options.loop;
+            auto.checked = options.auto;
+            for(var i = 1; i < 47; ++i){
+                    list.children[1].innerHTML += "<a id='track" + i + "' href=https://8ch.net/static/" + i + ".mp3>" + toDigits(i, 3) + "</a> ";
+                    if(i % 10 === 0){ list.children[1].innerHTML += "<br />"; }
+                    selector.innerHTML += "<option value='" + i + "'>" + i + "</option>"
+                    
             }
-            audio.src = document.getElementById("track" + trackNum).href;
-            audio.type = "audio/mpeg";
-            document.getElementsByName("track")[0][trackNum - 1].selected = true;
+            if(loop.checked){ player.loop = true; }
+            if(auto.checked){ player.autoplay = true; }
+            musicSource.src = document.getElementById("track" + options.track).href;
+            musicSource.type = "audio/mpeg";
+            selector[options.track - 1].selected = true;
+            
+            var nextTrack = function(){
+                var form = document.getElementById("datainput");
+                var selector = document.getElementById("trackselect");
+                selector[options.track].selected = true;
+                form.submit();
+            };
+            
         </script>
     </body>
 </html>
