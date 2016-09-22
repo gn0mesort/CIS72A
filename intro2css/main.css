@@ -1,0 +1,29 @@
+/* Full Cup of Coffee main styles 
+    Author: Alexander Rothman
+    Description: Main CSS file for "The Full Cup of Coffee" assignment
+*/
+body { 
+    margin: 0 40px; 
+    font: 105%/1.2 Verdana, Arial, sans-serif; 
+    background-color: #E6D5A4; 
+    color: black; 
+}
+
+h1 {
+    background: url(bg_coffeebeans.jpg);
+    margin: 0 -40px;
+}
+
+h2, h3 {
+    font-family: Georgia, Times, serif;
+    color: #994818;
+}
+
+a{
+    color: #CC6633;
+    text-decoration: none;
+}
+
+ul {
+    list-style-image: url(bean_bullet.gif);
+}
