@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Alexander Rothman's Feedback Page</title>
+    </head>
+    <body>
+        <h1>Alexander Rothman's Feedback Page</h1>
+        <p><b>Send me your feedback!</b> I welcome all feedback, positive or negative. So feel free to send your comments -- it will help to keep me informed. I promise to monitor and respond to all feedback in a timely manner.</p>
+        <form action="myfeedbackresponse.htm" method="post">
+            <p>
+                Full Name:<br />
+                <input type="text" name="fullname" size="30" />
+            </p>
+            <p>
+                Feedback is Regarding:<br />
+                <select name="re">
+                    <option value="design">Web Site Design</option>
+                    <option value="content">Web Site Content</option>
+                    <option value="problem">Web Site Problem</option>
+                    <option value="personal">Personal Issue</option>
+                    <option value="other">Other</option>
+                </select>
+            </p>
+            <p>
+                Overall Feeling:<br />
+                <input type="radio" name="feeling" value="satisfied" />Satisfied&nbsp;&nbsp;
+                <input type="radio" name="feeling" value="neutral" />Neutral&nbsp;&nbsp;
+                <input type="radio" name="feeling" value="unsatisfied" />Unsatisfied&nbsp;&nbsp;
+            </p>
+            <p>
+                Your Comments:<br />
+                <textarea name="comments" rows="4" cols="30"></textarea>
+            </p>
+            <p>
+                I would recommend this site to others: <br />
+                <input type="checkbox" name="recommend" value="yes" />
+            </p>
+            <p>
+                <input type="submit" name="send" value="Send Feedback" />&nbsp;&nbsp;
+                <input type="reset" name="reset" value="Clear Feedback" />
+            </p>
+        </form>
+    </body>
+</html>
