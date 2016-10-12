@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Alexander Rothman's Final Project Feedback</title>
+        <link href="layout.css" type="text/css" rel="stylesheet" />
+        <link href="main.css" type="text/css" rel="stylesheet" />
+        <link href="favicon.png" type="image/png" rel="icon" />
+        <!-- Final Project by Alexander Rothman -->
+    </head>
+    <body class="black-back gray glow">
+        <header>
+            <img src="logo.png" height="131" alt="Alexander Rothman's World"/>
+        </header>
+        <div class="fixed black-back framed-inline" style="display: inline;">
+            <nav>
+                <h2>NAVIGATION</h2>
+                <p><a class="glow framed" href="index.html">Home</a></p>
+                <p><a class="glow framed" href="favlinks.html">Favorite Links</a></p>
+                <p><a class="glow framed" href="resume.html">Resume</a></p>
+                <p><a class="glow framed" href="other.html">Other</a></p>
+                <p id="here" class="glow framed-inline">Feedback</p>
+                <p />
+            </nav>
+        </div>
+        <div id="main">
+            <h1 class="framed-inline">Feedback</h1>
+            <p><b>Send me your feedback!</b> I welcome all feedback, positive or negative. So feel free to send your comments -- it will help to keep me informed. I promise to monitor and respond to all feedback in a timely manner.</p>
+            <form action="myfeedbackresponse.html" method="post">
+                <p>
+                    Full Name:<br />
+                    <input class="framed blue black-back" type="text" name="fullname" size="30" />
+                </p>
+                <p>
+                    Feedback is Regarding:<br />
+                    <select class="framed blue black-back" name="re">
+                        <option value="design">Web Site Design</option>
+                        <option value="content">Web Site Content</option>
+                        <option value="problem">Web Site Problem</option>
+                        <option value="personal">Personal Issue</option>
+                        <option value="other">Other</option>
+                    </select>
+                </p>
+                <p>
+                    Overall Feeling:<br />
+                    <span class="framed blue black-back">
+                    <input type="radio" name="feeling" value="satisfied" />Satisfied&nbsp;&nbsp;
+                    <input type="radio" name="feeling" value="neutral" />Neutral&nbsp;&nbsp;
+                    <input type="radio" name="feeling" value="unsatisfied" />Unsatisfied&nbsp;&nbsp;
+                    </span>
+                </p>
+                <p>
+                    Your Comments:<br />
+                    <textarea class="framed blue black-back" name="comments" rows="4" cols="30"></textarea>
+                </p>
+                <p>
+                    I would recommend this site to others: <br />
+                    <input type="checkbox" name="recommend" value="yes" />
+                </p>
+                <p>
+                    <input class="framed blue black-back" type="submit" name="send" value="Send Feedback" />&nbsp;&nbsp;
+                    <input class="framed blue black-back" type="reset" name="reset" value="Clear Feedback" />
+                </p>
+            </form>
+            <footer>
+                Copyright Alexander Rothman 2016
+            </footer>
+        </div>
+    </body>
+</html>

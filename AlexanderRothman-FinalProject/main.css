@@ -1,0 +1,147 @@
+.gray{
+    color: #AAAAAA;
+}
+.blue{
+    color: #00AAAA;
+}
+.magenta{
+    color: #AA00AA;
+}
+.black{
+    color: #000000;
+}
+.gray-back{
+    background: #AAAAAA;
+}
+.blue-back{
+    background: #00AAAA;
+}
+.magenta-back{
+    background: #AA00AA;
+}
+.black-back{
+    background: #000000;
+}
+.glow{
+    text-shadow: 0 0 3px currentColor;
+}
+.no-glow{
+    text-shadow: none;
+}
+.framed{
+    border: double;
+    padding: 2px 5px;
+    white-space: nowrap;
+}
+.framed-inline{
+    border: double;
+    padding: 2px 5px;
+    display: inline;
+    white-space: nowrap;
+}
+.right{
+    float: right;
+    margin: 0 0 10px 25px;
+}
+.left{
+    float: left;
+    margin: 0 25px 10px 0;
+}
+.center{
+    text-align: center;
+}
+.fixed{
+    position: fixed;
+}
+.italic{
+    font-style: italic;
+}
+.leftcol{
+    float: left;
+    width: 250px;
+}
+.rightcol{
+    margin-left: 300px;
+}
+.clear{
+    clear: both;
+}
+
+#here{
+    color: #AA00AA;
+}
+
+body{
+    font-family: "Consolas", monospace;
+    font-size: 80%;
+}
+
+a{
+    color: #00AAAA;
+}
+a:link{
+    text-decoration: none;
+}
+a:hover{
+    color: #AA00AA;
+    text-decoration: underline;
+}
+
+footer{
+    font-size: 80%;
+    font-style: italic;
+}
+
+ol.japanese{
+    list-style-type: cjk-ideographic;
+    list-style-position: inside;
+
+}
+
+ul{
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+table{
+    margin: 10px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    white-space: nowrap;
+}
+
+nav{
+    height: auto;
+    width: auto;
+}
+@media only screen and (max-width: 250px){
+    nav{
+        display: none;
+    }
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover{
+    color: #AA00AA;
+    text-decoration: underline;
+}
+p.right{
+    text-align: right;
+}
+p.left{
+    text-align: left;
+}
+
+table#board{
+    border: double;
+    background-color: #AAAAAA;
+    border-collapse: collapse;
+}
+table#board tr{
+    margin: 0;
+    padding: 0;
+}
+table#board td{
+    margin: 0;
+    padding: 0;
+}
