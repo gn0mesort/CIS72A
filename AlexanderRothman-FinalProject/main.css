@@ -135,17 +135,3 @@ p.left{
 p.inline{
     display: inline;
 }
-
-table#board{
-    border: double;
-    background-color: #AAAAAA;
-    border-collapse: collapse;
-}
-table#board tr{
-    margin: 0;
-    padding: 0;
-}
-table#board td{
-    margin: 0;
-    padding: 0;
-}
