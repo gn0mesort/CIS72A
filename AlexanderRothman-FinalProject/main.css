@@ -90,6 +90,7 @@ a:hover{
 footer{
     font-size: 80%;
     font-style: italic;
+    text-align: center;
 }
 
 ol.japanese{
@@ -130,6 +131,9 @@ p.right{
 }
 p.left{
     text-align: left;
+}
+p.inline{
+    display: inline;
 }
 
 table#board{
